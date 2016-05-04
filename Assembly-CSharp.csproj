@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{9753D40C-EA59-DF73-9A33-9A12BE8B1C34}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_1;UNITY_5_3;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_LOG_MIXED_STACKTRACE;ENABLE_UNITYWEBREQUEST;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Temp\bin\Release\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>D:/Program Files/Unity5/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>D:/Program Files/Unity5/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\SkillSystem\Core\PropertiesKey.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\Action\ActionAddBuff.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\Action\ActionHit.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\Action\ActionHp.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\Action\ActionParticle.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\Action\ActionShakeCamera.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\Action\ActionSummon.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\Action\IAction.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\Builder\ActionBuilder.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\Builder\MotionBuilder.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\Builder\TimeEventBuilder.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\Comp\FollowObjComp.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\Condition\SMTriggerCondition.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\DB\SkillActionDB.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\DB\SkillDB.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\DB\SkillMotionDB.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\DB\SkillSummonDB.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\DB\TimeLineDB.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\EditorMonoUpdate.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\ITarget.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\Motion\IMotion.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\Motion\MotionDirectlyTrigger.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\Motion\MotionMoveP2P.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\Msg\SkillMsgCast.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\Skill.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\SkillDefaultValue.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\SkillHub.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\SkillInstance.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\SkillProp.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\SkillState\SkillStCast.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\SkillState\SkillStCheck.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\SkillState\SkillStCoolDown.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\SkillState\SkillStReady.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\SkillState\SkillStSing.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\Summon\Summon.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\Targets\EmptySMTarget.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\Targets\SMTargetGet.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\Targets\SMTargetGetNear.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\TimeLine\TimeEvent.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\TimeLine\TimeEventAttributes.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\TimeLine\TimeEventDelegate.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\TimeLine\TimeEventSkillSummon.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\TimeLine\TimeLine.cs" />
+     <Compile Include="Assets\SkillSystem\Extern\Character.cs" />
+     <Compile Include="Assets\SkillSystem\Extern\DB\DBDataBase.cs" />
+     <Compile Include="Assets\SkillSystem\Extern\DB\DBMemberAttribute.cs" />
+     <Compile Include="Assets\SkillSystem\Extern\DB\DBReader.cs" />
+     <Compile Include="Assets\SkillSystem\Extern\DB\LocalDB.cs" />
+     <Compile Include="Assets\SkillSystem\Extern\Effect\Effect.cs" />
+     <Compile Include="Assets\SkillSystem\Extern\Enum.cs" />
+     <Compile Include="Assets\SkillSystem\Extern\Helper.cs" />
+     <Compile Include="Assets\SkillSystem\Extern\IBuildable.cs" />
+     <Compile Include="Assets\SkillSystem\Extern\Manager\DataManager.cs" />
+     <Compile Include="Assets\SkillSystem\Extern\Manager\EffectManager.cs" />
+     <Compile Include="Assets\SkillSystem\Extern\Manager\GameCenter.cs" />
+     <Compile Include="Assets\SkillSystem\Extern\Manager\SceneManager.cs" />
+     <Compile Include="Assets\SkillSystem\Extern\MessageCenter.cs" />
+     <Compile Include="Assets\SkillSystem\Extern\Prop\ConvertStringToProp.cs" />
+     <Compile Include="Assets\SkillSystem\Extern\Prop\ConvertStringToSMTarget.cs" />
+     <Compile Include="Assets\SkillSystem\Extern\Prop\Prop.cs" />
+     <Compile Include="Assets\SkillSystem\Extern\Prop\PropDrawStyle.cs" />
+     <Compile Include="Assets\SkillSystem\Extern\SingletonObject.cs" />
+     <Compile Include="Assets\SkillSystem\Extern\StateMachine\Condition.cs" />
+     <Compile Include="Assets\SkillSystem\Extern\StateMachine\Machine.cs" />
+     <Compile Include="Assets\SkillSystem\Extern\StateMachine\State.cs" />
+     <Compile Include="Assets\SkillSystem\Extern\StateMachine\TypeUtil.cs" />
+     <Compile Include="Assets\SkillSystem\Extern\SystemBase.cs" />
+     <Compile Include="Assets\SkillSystem\Extern\URL.cs" />
+     <Compile Include="Assets\SkillSystem\ProgramEntry.cs" />
+     <None Include="Assets\SkillSystem\Editor\Resources\SkilllWnd_Config.xml" />
+ <Reference Include="UnityEngine.UI">
+ <HintPath>D:/Program Files/Unity5/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>D:/Program Files/Unity5/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="Code.External.Engine.Sqlite">
+ <HintPath>D:/PersonProject/trunk/SkillSystem/Assets/SkillSystem/Plugins/Code.External.Engine.Sqlite.dll</HintPath>
+ </Reference>
+ <Reference Include="ICSharpCode.SharpZipLib">
+ <HintPath>D:/PersonProject/trunk/SkillSystem/Assets/SkillSystem/Plugins/ICSharpCode.SharpZipLib.dll</HintPath>
+ </Reference>
+ <Reference Include="Mono.Data.Sqlite">
+ <HintPath>D:/PersonProject/trunk/SkillSystem/Assets/SkillSystem/Plugins/Mono.Data.Sqlite.dll</HintPath>
+ </Reference>
+ <Reference Include="Mono.Data.SqliteClient">
+ <HintPath>D:/PersonProject/trunk/SkillSystem/Assets/SkillSystem/Plugins/Mono.Data.SqliteClient.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>

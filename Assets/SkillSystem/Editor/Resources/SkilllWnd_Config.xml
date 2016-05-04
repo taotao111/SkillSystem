@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <Vector2 Name ="minWndSize" Value ="1000,200"/>
+    <Rect Name ="topRect" Value ="0,0,1000,30"/>
+    <Rect Name ="centerLeftRect" Value ="0,30,200,30"/>
+    <Rect Name ="centerRightRect" Value ="0,0,1000,30"/>
+    <Rect Name ="bottomRect" Value ="0,0,1000,30"/>
+    <Rect Name ="optaionsBtnRect" Value ="0,0,60,22"/>
+</config>

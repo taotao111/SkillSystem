@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1ECB36C3-EE6A-1F85-62AB-9AA55E6E39F0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
+    <CompilerResponseFile></CompilerResponseFile>
+    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
+    <UnityVersion>5.3.1f1</UnityVersion>
+    <RootNamespace></RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Debug\</OutputPath>
+    <IntermediateOutputPath>Temp\UnityVS_obj\Debug\</IntermediateOutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_1;UNITY_5_3;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_LOG_MIXED_STACKTRACE;ENABLE_UNITYWEBREQUEST;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Release\</OutputPath>
+    <IntermediateOutputPath>Temp\UnityVS_obj\Release\</IntermediateOutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>TRACE;UNITY_5_3_1;UNITY_5_3;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_LOG_MIXED_STACKTRACE;ENABLE_UNITYWEBREQUEST;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="Boo.Lang" />
+    <Reference Include="UnityScript.Lang" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\C#LE\CLS_Environment.cs" />
+    <Compile Include="Assets\C#LE\Compitler\CLS_Compiler.cs" />
+    <Compile Include="Assets\C#LE\Compitler\CLS_Compiler_00Util.cs" />
+    <Compile Include="Assets\C#LE\Compitler\CLS_Compiler_01Block.cs" />
+    <Compile Include="Assets\C#LE\Compitler\CLS_Compiler_02Value.cs" />
+    <Compile Include="Assets\C#LE\Compitler\CLS_Compiler_03DefineSet.cs" />
+    <Compile Include="Assets\C#LE\Compitler\CLS_Compiler_04Math.cs" />
+    <Compile Include="Assets\C#LE\Compitler\CLS_Compiler_05Function.cs" />
+    <Compile Include="Assets\C#LE\Compitler\CLS_Compiler_06Loop.cs" />
+    <Compile Include="Assets\C#LE\Compitler\CLS_Compiler_07OO.cs" />
+    <Compile Include="Assets\C#LE\Delegate\Delegate.cs" />
+    <Compile Include="Assets\C#LE\Expression\CLS_Expression_Block.cs" />
+    <Compile Include="Assets\C#LE\Expression\CLS_Expression_Define.cs" />
+    <Compile Include="Assets\C#LE\Expression\CLS_Expression_GetValue.cs" />
+    <Compile Include="Assets\C#LE\Expression\CLS_Expression_SetValue.cs" />
+    <Compile Include="Assets\C#LE\Expression\Function\CLS_Expression_Function.cs" />
+    <Compile Include="Assets\C#LE\Expression\Function\CLS_Expression_FunctionNew.cs" />
+    <Compile Include="Assets\C#LE\Expression\Function\CLS_Expression_FunctionNewArray.cs" />
+    <Compile Include="Assets\C#LE\Expression\Function\CLS_Expression_IndexFind.cs" />
+    <Compile Include="Assets\C#LE\Expression\Function\CLS_Expression_IndexSetValue.cs" />
+    <Compile Include="Assets\C#LE\Expression\Function\CLS_Expression_Lambda.cs" />
+    <Compile Include="Assets\C#LE\Expression\Function\CLS_Expression_MemberFind.cs" />
+    <Compile Include="Assets\C#LE\Expression\Function\CLS_Expression_MemberFunction.cs" />
+    <Compile Include="Assets\C#LE\Expression\Function\CLS_Expression_MemberMath.cs" />
+    <Compile Include="Assets\C#LE\Expression\Function\CLS_Expression_MemberSetValue.cs" />
+    <Compile Include="Assets\C#LE\Expression\Function\CLS_Expression_StaticFind.cs" />
+    <Compile Include="Assets\C#LE\Expression\Function\CLS_Expression_StaticFunction.cs" />
+    <Compile Include="Assets\C#LE\Expression\Function\CLS_Expression_StaticMath.cs" />
+    <Compile Include="Assets\C#LE\Expression\Function\CLS_Expression_StaticSetValue.cs" />
+    <Compile Include="Assets\C#LE\Expression\Function\CLS_Expression_Throw.cs" />
+    <Compile Include="Assets\C#LE\Expression\Loop\CLS_Expression_LoopBreak.cs" />
+    <Compile Include="Assets\C#LE\Expression\Loop\CLS_Expression_LoopContinue.cs" />
+    <Compile Include="Assets\C#LE\Expression\Loop\CLS_Expression_LoopDowhile.cs" />
+    <Compile Include="Assets\C#LE\Expression\Loop\CLS_Expression_LoopFor.cs" />
+    <Compile Include="Assets\C#LE\Expression\Loop\CLS_Expression_LoopForEach.cs" />
+    <Compile Include="Assets\C#LE\Expression\Loop\CLS_Expression_LoopIf.cs" />
+    <Compile Include="Assets\C#LE\Expression\Loop\CLS_Expression_LoopReturn.cs" />
+    <Compile Include="Assets\C#LE\Expression\Loop\CLS_Expression_LoopTry.cs" />
+    <Compile Include="Assets\C#LE\Expression\Loop\CLS_Expression_LoopWhile.cs" />
+    <Compile Include="Assets\C#LE\Expression\Math\CLS_Expression_Math2Value.cs" />
+    <Compile Include="Assets\C#LE\Expression\Math\CLS_Expression_Math2ValueAndOR.cs" />
+    <Compile Include="Assets\C#LE\Expression\Math\CLS_Expression_Math2ValueLogic.cs" />
+    <Compile Include="Assets\C#LE\Expression\Math\CLS_Expression_Math3Value.cs" />
+    <Compile Include="Assets\C#LE\Expression\Math\CLS_Expression_NegativeLogic.cs" />
+    <Compile Include="Assets\C#LE\Expression\Math\CLS_Expression_NegativeValue.cs" />
+    <Compile Include="Assets\C#LE\Expression\Math\CLS_Expression_SelfOp.cs" />
+    <Compile Include="Assets\C#LE\Expression\Math\CLS_Expression_SelfOpWithValue.cs" />
+    <Compile Include="Assets\C#LE\Expression\Math\CLS_Expression_TypeCheck.cs" />
+    <Compile Include="Assets\C#LE\Expression\Math\CLS_Expression_TypeConvert.cs" />
+    <Compile Include="Assets\C#LE\RegHelper\FunctionTrace.cs" />
+    <Compile Include="Assets\C#LE\RegHelper\RegHelper_DeleAction.cs" />
+    <Compile Include="Assets\C#LE\RegHelper\RegHelper_DeleAction1Param.cs" />
+    <Compile Include="Assets\C#LE\RegHelper\RegHelper_DeleAction2Param.cs" />
+    <Compile Include="Assets\C#LE\RegHelper\RegHelper_DeleAction3Param.cs" />
+    <Compile Include="Assets\C#LE\RegHelper\RegHelper_DeleNonVoidAction.cs" />
+    <Compile Include="Assets\C#LE\RegHelper\RegHelper_DeleNonVoidAction1Param.cs" />
+    <Compile Include="Assets\C#LE\RegHelper\RegHelper_DeleNonVoidAction2Param.cs" />
+    <Compile Include="Assets\C#LE\RegHelper\RegHelper_DeleNonVoidAction3Param.cs" />
+    <Compile Include="Assets\C#LE\RegHelper\RegHelper_Function.cs" />
+    <Compile Include="Assets\C#LE\RegHelper\RegHelper_Type.cs" />
+    <Compile Include="Assets\C#LE\Token\CLS_Token.cs" />
+    <Compile Include="Assets\C#LE\Type\CLS_Type_Bool.cs" />
+    <Compile Include="Assets\C#LE\Type\CLS_Type_Class.cs" />
+    <Compile Include="Assets\C#LE\Type\CLS_Type_Delegate.cs" />
+    <Compile Include="Assets\C#LE\Type\CLS_Type_Double.cs" />
+    <Compile Include="Assets\C#LE\Type\CLS_Type_Float.cs" />
+    <Compile Include="Assets\C#LE\Type\CLS_Type_Lambda.cs" />
+    <Compile Include="Assets\C#LE\Type\CLS_Type_Null.cs" />
+    <Compile Include="Assets\C#LE\Type\CLS_Type_String.cs" />
+    <Compile Include="Assets\C#LE\Type\CLS_Type_Var.cs" />
+    <Compile Include="Assets\C#LE\Type\ints\CLS_Type_Byte.cs" />
+    <Compile Include="Assets\C#LE\Type\ints\CLS_Type_Char.cs" />
+    <Compile Include="Assets\C#LE\Type\ints\CLS_Type_Int.cs" />
+    <Compile Include="Assets\C#LE\Type\ints\CLS_Type_Long.cs" />
+    <Compile Include="Assets\C#LE\Type\ints\CLS_Type_Sbyte.cs" />
+    <Compile Include="Assets\C#LE\Type\ints\CLS_Type_Short.cs" />
+    <Compile Include="Assets\C#LE\Type\ints\CLS_Type_UInt.cs" />
+    <Compile Include="Assets\C#LE\Type\ints\CLS_Type_ULong.cs" />
+    <Compile Include="Assets\C#LE\Type\ints\CLS_Type_Ushort.cs" />
+    <Compile Include="Assets\C#LE\Type\utils\NumericTypeUtils.cs" />
+    <Compile Include="Assets\C#LE\Value\CLS_Value_Value.cs" />
+    <Compile Include="Assets\C#LE\_Interface\CLS_Content.cs" />
+    <Compile Include="Assets\C#LE\_Interface\CLS_Expression.cs" />
+    <Compile Include="Assets\C#LE\_Interface\CLS_Function.cs" />
+    <Compile Include="Assets\C#LE\_Interface\CLS_Loger.cs" />
+    <Compile Include="Assets\C#LE\_Interface\CLS_Type.cs" />
+    <Compile Include="Assets\Test.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\C#LE\Bug.txt" />
+    <None Include="Assets\C#LE\Log.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
+</Project>
