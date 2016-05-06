@@ -1,9 +1,7 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Mono.Data.Sqlite;
 using System.Reflection;
-using System;
+using Code.SkillSystem.Runtime;
 
 public class TimeLineDB : DBReader
 {
@@ -57,7 +55,7 @@ public class TimeLineDB : DBReader
                     break;
                 Assembly assembly = Assembly.GetExecutingAssembly(); // 获取当前程序集 
 
-                TimeEvent time_event = assembly.CreateInstance(((TimeEventType)((int)reader[PropertiesKey.TIMELINE_EVENT_TYPE])).ToString()) as TimeEvent;
+                TimeEvent time_event = assembly.CreateInstance("Code.SkillSystem.Runtime." + ((TimeEventType)((int)reader[PropertiesKey.TIMELINE_EVENT_TYPE])).ToString()) as TimeEvent;
                 time_event.Convert(reader);
 
                 get_value.Add(time_event);

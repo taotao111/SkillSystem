@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-namespace Code.SkillSystem
+namespace Code.SkillSystem.Runtime
 {
     public class SkillHub
     {

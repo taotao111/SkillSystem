@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using Code.SkillSystem;
+using Code.SkillSystem.Runtime;
 using Code.StateMachine;
 using System.Collections;
 
@@ -119,11 +119,13 @@ public class SkillDynamicData
 
     private Skill m_Skill;
 
-    public Summon BuildSummon(uint summon_id, ISkillCaster caster, ISummonCaster summon_caster,ISkillTarget summon_target) 
+    public Summon BuildSummon(uint summon_id, ISkillCaster caster, ISummonCaster summon_caster,ISkillTarget summon_target,SMTargetGet trigger_target_get) 
     {
         Summon summon = new Summon();
 
         summon.Create(GameCenter.Instance.DataManager.skillSummonDB.Get(id,summon_id),m_Skill,caster,summon_caster, summon_target);
+
+        summon.TriggerTargetsGet = trigger_target_get;
 
         summons.Add(summon);
 
@@ -227,6 +229,8 @@ public class Skill : ISkill, IMessageListener
         time_event.owner = skillStaticData.id;
         timeLine.AddEvent(time_event);
     }
+
+    #region 编辑器脚本
 #if UNITY_EDITOR
     public void ReplaceHoler(ISkillCaster caster)
     {
@@ -252,7 +256,7 @@ public class Skill : ISkill, IMessageListener
 
         GUILayout.EndVertical();
     }
-
 #endif
+    #endregion
 }
 

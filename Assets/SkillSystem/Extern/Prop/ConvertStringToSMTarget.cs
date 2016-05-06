@@ -1,5 +1,5 @@
 ﻿using Code.External.Engine.Sqlite;
-using Code.SkillSystem;
+using Code.SkillSystem.Runtime;
 using System;
 
 public class ConvertStringToSMTarget : IDataConverter

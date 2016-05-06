@@ -4,7 +4,7 @@ using System.Collections.Generic;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
-namespace Code.SkillSystem
+namespace Code.SkillSystem.Runtime
 {
     public interface ISummonCaster : ITarget
     {
@@ -47,6 +47,7 @@ namespace Code.SkillSystem
         public ISummonCaster summonCaster { get { return m_SummonCaster; } }
         public Skill skill { get { return m_Skill; } }
         public ISkillTarget SummonMoveTarget { get { return m_SummonMoveTarget; } }
+        public SMTargetGet TriggerTargetsGet { get; set; }
         #endregion
 
         /// <summary>
@@ -99,14 +100,13 @@ namespace Code.SkillSystem
             //生成特效
             if (!string.IsNullOrEmpty(summon_data.prop.GetString(PropertiesKey.SUMMON_CREATE_EFFECT_NAME)))
             {
-                Effect = GameCenter.Instance.EffectManager.Create(summon_data.prop.GetString(PropertiesKey.SUMMON_CREATE_EFFECT_NAME),Transform.position,Transform.rotation);
+                Effect create_effect = GameCenter.Instance.EffectManager.Create(summon_data.prop.GetString(PropertiesKey.SUMMON_CREATE_EFFECT_NAME),Transform.position,Transform.rotation);
 
+                create_effect.Destroy();
                 //Effect.SetParent(Transform, true);
             }
-
             //生成音效
-            Debug.LogError("Here is play audio!!!");
-            //GameCenter.Instance.AudioManager.Play(eAudioLayer.EFFECTAUDIO, summon_data.prop.GetString(PropertiesKey.SUMMON_AUDIO_NAME));
+            GameCenter.Instance.AudioManager.Play(eAudioLayer.EFFECTAUDIO, summon_data.prop.GetString(PropertiesKey.SUMMON_CREATE_AUDIO_NAME));
 
             //
             if (!string.IsNullOrEmpty(summon_data.prop.GetString(PropertiesKey.SUMMON_FLY_EFFECT_NAME)))
@@ -115,8 +115,6 @@ namespace Code.SkillSystem
 
                 Effect.SetParent(Transform, true);
             }
-
-
         }
         public void Update(float elapsed_sec)
         {
@@ -124,7 +122,7 @@ namespace Code.SkillSystem
             {
                 for (int i = 0; i < m_Motions.Count; i++)
                 {
-                    m_Motions[i].Update(elapsed_sec);
+                    m_Motions[i].UpdateFrame(elapsed_sec);
                 }
                 if (m_Duration > 0)
                 {
@@ -151,6 +149,21 @@ namespace Code.SkillSystem
                 }
             }
 
+        }
+        private void TriggerEffect()
+        {
+            string name = m_SummonData.prop.GetString(PropertiesKey.SUMMON_TRIGGER_EFFECT_NAME);
+            //生成特效
+            if (!string.IsNullOrEmpty(name))
+            {
+                Effect create_effect = GameCenter.Instance.EffectManager.Create(name, Transform.position  + m_SummonData.prop.GetVector3(PropertiesKey.SUMMON_TRIGGER_EFFECT_NODE_OFFSET), Transform.rotation);
+
+                create_effect.Destroy();
+                //Effect.SetParent(Transform, true);
+            }
+            //生成音效
+            name = m_SummonData.prop.GetString(PropertiesKey.SUMMON_TRIGGER_AUDIO_NAME);
+            GameCenter.Instance.AudioManager.Play(eAudioLayer.EFFECTAUDIO, m_SummonData.prop.GetString(PropertiesKey.SUMMON_TRIGGER_AUDIO_NAME));
         }
         public void Expire()
         {
@@ -195,6 +208,15 @@ namespace Code.SkillSystem
             summon_owner_draw.enable = false;
             m_SummonData.prop.AddStyle(summon_owner_draw);
         }
+        public void Remove(uint skill_id, uint summon_id)
+        {
+            m_SummonData = GameCenter.Instance.DataManager.skillSummonDB.Get(skill_id, summon_id);
+            GameCenter.Instance.DataManager.skillMotionDB.Remove(skill_id, summon_id);
+            GameCenter.Instance.DataManager.skillActionDB.Remove(m_SummonData.owner, m_SummonData.id);
+
+            GameCenter.Instance.DataManager.skillSummonDB.Remove(m_SummonData);
+        }
+
         public void Draw()
         {
             GUILayout.BeginVertical("box");
@@ -219,7 +241,7 @@ namespace Code.SkillSystem
                 {
                     System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly(); // 获取当前程序集 
 
-                    Motion motion = (Motion)assembly.CreateInstance("Code.SkillSystem." + m_CreateMotionType.ToString().Replace("M_", "Motion"));
+                    Motion motion = (Motion)assembly.CreateInstance("Code.SkillSystem.Runtime." + m_CreateMotionType.ToString().Replace("M_", "Motion"));
 
                     if (motion != null)
                     {
@@ -257,7 +279,7 @@ namespace Code.SkillSystem
                     System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly(); // 获取当前程序集 
 
 
-                    Action action = (Action)assembly.CreateInstance("Code.SkillSystem.Action" + m_CreateActionType.ToString());
+                    Action action = (Action)assembly.CreateInstance("Code.SkillSystem.Runtime.Action" + m_CreateActionType.ToString());
 
                     if (action != null)
                     {

@@ -2,16 +2,16 @@
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
-namespace Code.SkillSystem
+namespace Code.SkillSystem.Runtime
 {
     public interface IMotion
     {
-        void Update(float elapsed_sec);
+        void UpdateFrame(float elapsed_sec);
     }
 
-    public class Motion : IMotion, IBuildable<Summon>
+    public class Motion : ScriptableObject, IMotion, IBuildable<Summon>
     {
-        protected Summon m_Summon { get; set; }
+        public Summon Summon { get; protected set; }
         protected int id;
         protected int owner;
         protected Prop m_Prop = new Prop();
@@ -31,7 +31,7 @@ namespace Code.SkillSystem
         /// <param name="summon"></param>
         public void Create(Prop prop,Summon summon)
         {
-            m_Summon = summon;
+            Summon = summon;
             m_Prop = prop;
             
             m_AutoFreeTime = m_Prop.GetFloat(PropertiesKey.MOTION_AUTO_DESTROY_TIME);
@@ -52,7 +52,7 @@ namespace Code.SkillSystem
         /// 更新
         /// </summary>
         /// <param name="elapsed_sec"></param>
-        public virtual void Update(float elapsed_sec)
+        public virtual void UpdateFrame(float elapsed_sec)
         {
             _Update(elapsed_sec);
         }
@@ -74,7 +74,7 @@ namespace Code.SkillSystem
         /// <param name="common_trigger"></param>
         public void Trigger(bool common_trigger)
         {
-            m_Summon.Trigger(common_trigger);
+            Summon.Trigger(common_trigger);
         }
 
 #if UNITY_EDITOR
@@ -97,7 +97,7 @@ namespace Code.SkillSystem
             draw_stype_motion_type.enable = false;
             prop.AddStyle(draw_stype_motion_type);
         }
-        public void Create_Editor(Prop prop, Summon summon) { m_Prop = prop; m_Summon = summon; }
+        public void Create_Editor(Prop prop, Summon summon) { m_Prop = prop; Summon = summon; }
         public void Draw()
         {
             GUILayout.BeginVertical("box");
@@ -108,7 +108,7 @@ namespace Code.SkillSystem
             GUI.color = Color.red;
             if (GUILayout.Button("删除"))
             {
-                m_Summon.RemoveMotion(this);
+                Summon.RemoveMotion(this);
             }
             GUI.color = Color.white;
             GUILayout.EndHorizontal();
@@ -121,7 +121,7 @@ namespace Code.SkillSystem
         }
         public virtual void _Draw()
         {
-            m_Prop.Draw(false);
+            m_Prop.Draw("属性",false);
         }
         /// <summary>
         /// 添加默认属性
@@ -134,7 +134,7 @@ namespace Code.SkillSystem
                 prop.Add(SkillDefaultValue.MOTION_DEFAULT_VALUE[i].key, SkillDefaultValue.MOTION_DEFAULT_VALUE[i].default_value);
             }
 
-            prop.SetValue(PropertiesKey.MOTION_TYPE, this.ToString().Replace("Code.SkillSystem.", ""));
+            prop.SetValue(PropertiesKey.MOTION_TYPE, this.ToString().Replace("Code.SkillSystem.Runtime.", ""));
 
             Init_Editor();
         }

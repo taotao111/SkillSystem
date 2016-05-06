@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Code.StateMachine;
-namespace Code.SkillSystem
+namespace Code.SkillSystem.Runtime
 {
     public class SkillStReady : State<Skill>
     {

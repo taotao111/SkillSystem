@@ -45,8 +45,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\LogLOD.cs" />
      <Compile Include="Assets\SkillSystem\Core\PropertiesKey.cs" />
      <Compile Include="Assets\SkillSystem\Core\Skill\Action\ActionAddBuff.cs" />
+     <Compile Include="Assets\SkillSystem\Core\Skill\Action\ActionAudio.cs" />
      <Compile Include="Assets\SkillSystem\Core\Skill\Action\ActionHit.cs" />
      <Compile Include="Assets\SkillSystem\Core\Skill\Action\ActionHp.cs" />
      <Compile Include="Assets\SkillSystem\Core\Skill\Action\ActionParticle.cs" />
@@ -97,6 +99,7 @@
      <Compile Include="Assets\SkillSystem\Extern\Enum.cs" />
      <Compile Include="Assets\SkillSystem\Extern\Helper.cs" />
      <Compile Include="Assets\SkillSystem\Extern\IBuildable.cs" />
+     <Compile Include="Assets\SkillSystem\Extern\Manager\AudioManager.cs" />
      <Compile Include="Assets\SkillSystem\Extern\Manager\DataManager.cs" />
      <Compile Include="Assets\SkillSystem\Extern\Manager\EffectManager.cs" />
      <Compile Include="Assets\SkillSystem\Extern\Manager\GameCenter.cs" />

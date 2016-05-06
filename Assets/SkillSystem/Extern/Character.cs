@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using Code.SkillSystem;
+using Code.SkillSystem.Runtime;
 public class Character : MonoBehaviour, ISkillCaster, IMessageListener
 {
     #region Pubilc

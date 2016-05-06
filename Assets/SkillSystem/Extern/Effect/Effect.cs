@@ -82,7 +82,7 @@ public class Effect {
             for (int i = 0; i < particles.Length; i++)
             {
                 particles[i].loop = false;
-                particles[i].enableEmission = false;
+                //particles[i].enableEmission = false;
                 particles[i].Stop();
             }
         }

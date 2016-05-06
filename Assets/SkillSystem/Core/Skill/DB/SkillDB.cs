@@ -6,7 +6,7 @@ using Code.External.Engine.Sqlite;
 using UnityEditor;
 #endif
 
-namespace Code.SkillSystem
+namespace Code.SkillSystem.Runtime
 {
     public class SkillDB : DBReader
     {

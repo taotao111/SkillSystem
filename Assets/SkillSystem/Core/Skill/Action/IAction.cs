@@ -2,7 +2,7 @@
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
-namespace Code.SkillSystem
+namespace Code.SkillSystem.Runtime
 {
     public interface IAction
     {
@@ -56,10 +56,10 @@ namespace Code.SkillSystem
 
             GUILayout.EndVertical();
         }
-        public virtual void _Draw() { m_Prop.Draw(false); }
+        public virtual void _Draw() { m_Prop.Draw("属性",false); }
         public virtual void AddDefault(Prop prop)
         {
-            prop.Add(PropertiesKey.ACTION_TYPE, this.ToString().Replace("Code.SkillSystem.", ""));
+            prop.Add(PropertiesKey.ACTION_TYPE, this.ToString().Replace("Code.SkillSystem.Runtime.", ""));
         }
         public void Init_Editor()
         {

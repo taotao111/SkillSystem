@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-namespace Code.SkillSystem
+namespace Code.SkillSystem.Runtime
 {
     public class SkillActionDB : DBReader
     {
@@ -43,19 +43,19 @@ namespace Code.SkillSystem
         }
 
 
-        public List<Action> GetAction(uint owner_skill, uint owner, Summon summon)
+        public List<Action> GetAction(uint owner_skill, uint owner_summon, Summon summon)
         {
             List<Action> actions = new List<Action>();
 
             List<Prop> props = new List<Prop>();
             if (!m_Datas.ContainsKey(owner_skill)) { return actions; }
-            if (m_Datas[owner_skill].TryGetValue(owner, out props))
+            if (m_Datas[owner_skill].TryGetValue(owner_summon, out props))
             {
                 for (int i = 0; i < props.Count; i++)
                 {
                     System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly(); // 获取当前程序集 
 
-                    Action action = (Action)assembly.CreateInstance("Code.SkillSystem." + props[i].GetString(PropertiesKey.ACTION_TYPE));
+                    Action action = (Action)assembly.CreateInstance("Code.SkillSystem.Runtime." + props[i].GetString(PropertiesKey.ACTION_TYPE));
 
                     action.Create(props[i], summon);
                     actions.Add(action);
@@ -83,6 +83,17 @@ namespace Code.SkillSystem
             }
 
             return id;
+        }
+        public void Remove(uint owner_skill, uint owner_summon)
+        {
+            List<Action> actions = new List<Action>();
+
+            List<Prop> props = new List<Prop>();
+            if (!m_Datas.ContainsKey(owner_skill)) { return ; }
+            if (m_Datas[owner_skill].TryGetValue(owner_summon, out props))
+            {
+                for (int i = 0; i < props.Count; i++) { Remove(props[i]); }
+            }
         }
         public void Remove(Prop prop)
         {

@@ -5,6 +5,7 @@ public class GameCenter : SystemBase<GameCenter>  {
     private EffectManager m_EffectManager;
     private DataManager m_DataManager;
     private SceneManager m_SceneManager;
+    private AudioManager m_AudioManager;
     /// <summary>
     /// 特效管理类
     /// </summary>
@@ -51,6 +52,20 @@ public class GameCenter : SystemBase<GameCenter>  {
             return m_SceneManager;
         }
     }
+
+    public AudioManager AudioManager
+    {
+        get
+        {
+            if (m_AudioManager == null)
+            {
+                m_AudioManager = new AudioManager();
+                m_AudioManager.Init();
+            }
+
+            return m_AudioManager;
+        }
+    }
     /// <summary>
     /// 
     /// </summary>
@@ -64,5 +79,8 @@ public class GameCenter : SystemBase<GameCenter>  {
 
         m_SceneManager = new SceneManager();
         m_SceneManager.Init();
+
+        m_AudioManager = new AudioManager();
+        m_AudioManager.Init();
     }
 }

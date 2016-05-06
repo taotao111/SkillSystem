@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-namespace Code.SkillSystem {
+namespace Code.SkillSystem.Runtime {
     public class SMTriggerCondition {
 
         protected Summon m_Summon;

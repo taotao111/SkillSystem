@@ -1,30 +1,31 @@
-﻿using UnityEngine;
-using System.Collections;
-using System;
-
-public class TimeEventDelegate : TimeEvent {
-    public Action eventDelegate;
-
-    public TimeEventDelegate()
-    : base ()
-    { }
-
-    public void Add(Action dele)
+﻿
+namespace Code.SkillSystem.Runtime
+{
+    public class TimeEventDelegate : TimeEvent
     {
-        eventDelegate += dele;
-    }
+        public System.Action eventDelegate;
 
-    public void Remove(Action dele)
-    {
-        eventDelegate -= dele;
-    }
+        public TimeEventDelegate()
+        : base()
+        { }
 
-    public override void Trigger()
-    {
-        base.Trigger();
-        if(eventDelegate != null)
+        public void Add(System.Action dele)
         {
-            eventDelegate();
+            eventDelegate += dele;
+        }
+
+        public void Remove(System.Action dele)
+        {
+            eventDelegate -= dele;
+        }
+
+        public override void Trigger()
+        {
+            base.Trigger();
+            if (eventDelegate != null)
+            {
+                eventDelegate();
+            }
         }
     }
 }

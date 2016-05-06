@@ -1,5 +1,5 @@
 ﻿
-namespace Code.SkillSystem
+namespace Code.SkillSystem.Runtime
 {
     public class MotionDirectlyTrigger : Motion
     {
@@ -11,11 +11,11 @@ namespace Code.SkillSystem
             m_DelayTime = m_Prop.GetFloat(PropertiesKey.MOTION_DELAY_TIME);
         }
 
-        public  override void Update(float elapsed_sec)
+        public  override void UpdateFrame(float elapsed_sec)
         {
             if (m_DelayTime <= 0)
             {
-                m_Summon.Trigger(true);
+                Summon.Trigger(true);
             }
         }
 

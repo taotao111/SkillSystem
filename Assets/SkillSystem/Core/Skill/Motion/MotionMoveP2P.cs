@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-namespace Code.SkillSystem
+namespace Code.SkillSystem.Runtime
 {
     public class MotionMoveP2P : Motion
     {
@@ -16,7 +16,7 @@ namespace Code.SkillSystem
         {
             base._Init();
 
-            m_target = m_Summon.SummonMoveTarget.GetMount(prop.GetString(PropertiesKey.MOTION_P2P_TARGET_NODE));
+            m_target = Summon.SummonMoveTarget.GetMount(prop.GetString(PropertiesKey.MOTION_P2P_TARGET_NODE));
 
             //解析prop数据
             m_speed = prop.GetFloat(PropertiesKey.MOTION_P2P_SPEED);
@@ -27,16 +27,16 @@ namespace Code.SkillSystem
         {
             base._Update(elapsed_sec);
 
-            m_dir = m_target.position - m_Summon.Transform.position;
+            m_dir = m_target.position - Summon.Transform.position;
 
             float length = m_dir.magnitude;
             if (length > (m_dir.normalized * m_speed).magnitude)
             {
-                m_Summon.Transform.position += m_dir.normalized * m_speed;
+                Summon.Transform.position += m_dir.normalized * m_speed;
             }
             else
             {
-                m_Summon.Transform.position = m_target.position;
+                Summon.Transform.position = m_target.position;
                 Trigger(true);
             }
         }

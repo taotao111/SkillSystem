@@ -13,5 +13,9 @@ public class SkillProp  {
 
     public delegate void CreateSummonDele(uint owner,uint id);
     public static CreateSummonDele CreateSummon;
+    
+    //移除
+    public delegate void RemoveSummonDele(uint owner, uint id);
+    public static RemoveSummonDele RemoveSummon;
 #endif
 }

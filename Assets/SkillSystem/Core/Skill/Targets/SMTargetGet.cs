@@ -4,7 +4,7 @@ public enum eSMTarget
 {
     SMTargetGetNear = 1,
 }
-namespace Code.SkillSystem
+namespace Code.SkillSystem.Runtime
 {
 
     public class SMTargetGet

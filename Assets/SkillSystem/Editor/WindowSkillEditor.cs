@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEditorInternal;
 using UnityEngineInternal;
-using Code.SkillSystem;
+using Code.SkillSystem.Runtime;
 
 public class WindowSkillEditor : EditorWindow {
 
@@ -12,6 +12,7 @@ public class WindowSkillEditor : EditorWindow {
     private Rect m_Position;
     private Character m_character;
     private EditorMonoUpdate m_Update;
+
     #region Resources资源
     private Texture m_t_play;
     private Texture m_t_pause;
@@ -19,17 +20,18 @@ public class WindowSkillEditor : EditorWindow {
     private Texture m_t_keyFrame;
     #endregion
 
-    public bool isPlay { get; private set; }
-    public bool isPause { get; private set; }
-    public float time { get; private set; }
-    public double oldTime { get; private set; }
-    public float deltaTime { get; private set; }
+    public bool isPlay { get;  set; }
+    public bool isPause { get;  set; }
+    public float time { get;  set; }
+    public double oldTime { get;  set; }
+    public float deltaTime { get;  set; }
 
     void OnEnable()
     {
         //EditorApplication.isPlaying = true;
         Prop.openAddProp += CustomMenuItem.OpenProp;
         SkillProp.CreateSummon += CreateSummon;
+        SkillProp.RemoveSummon += RemoveSummon;
 
         SkillProp.right_draw = SkillProp.DrawSkillType.Skill;
         //数据加载
@@ -52,6 +54,7 @@ public class WindowSkillEditor : EditorWindow {
     {
         Prop.openAddProp += CustomMenuItem.OpenProp;
         SkillProp.CreateSummon -= CreateSummon;
+        SkillProp.RemoveSummon -= RemoveSummon;
 
         EditorApplication.update -= InvokeUpdate;
         if (m_character!= null && isPause == false && m_character.gameObject.name.Equals("skill_Obj"))
@@ -60,6 +63,7 @@ public class WindowSkillEditor : EditorWindow {
         }
         //EditorApplication.isPlaying = false;
     }
+
     public void Init()
     {
         if (position != m_Position)
@@ -395,7 +399,6 @@ public class WindowSkillEditor : EditorWindow {
         }
     }
     #endregion
-
     #region Center Right功能函数 技能页面
     public Character character;
 
@@ -788,7 +791,7 @@ public class WindowSkillEditor : EditorWindow {
     #endregion
 
     #region SUMMON
-    Code.SkillSystem.Summon summon = null;
+    Code.SkillSystem.Runtime.Summon summon = null;
     Vector2 m_scrollPos;
 
     private void DrawSummon()
@@ -812,8 +815,14 @@ public class WindowSkillEditor : EditorWindow {
 
     public void CreateSummon(uint owner,uint id)
     {
-        summon = new Code.SkillSystem.Summon();
+        summon = new Code.SkillSystem.Runtime.Summon();
         summon.LoadData(m_character, owner,id);
+    }
+
+    public void RemoveSummon(uint owner, uint id)
+    {
+        summon = new Code.SkillSystem.Runtime.Summon();
+        summon.Remove(owner, id);
     }
 
     #endregion
@@ -821,7 +830,6 @@ public class WindowSkillEditor : EditorWindow {
     void DrawAction() { }
 
     #endregion
-
     #region Center Left功能函数
     private int m_CountPreSec = 60;
     private float m_CellTime = 0.0001f;
@@ -913,7 +921,6 @@ public class WindowSkillEditor : EditorWindow {
         }
     }
     #endregion
-
     #region Bottom功能函数
     /// <summary>
     /// 底边
@@ -931,7 +938,9 @@ public class WindowSkillEditor : EditorWindow {
 
         GUI.EndGroup();
     }
-
+    /// <summary>
+    /// 导出资源
+    /// </summary>
     public void Export()
     {
         //保存技能信息
@@ -953,7 +962,7 @@ public class WindowSkillEditor : EditorWindow {
         {
             time_events.AddRange(it.Value.timeLine.timeEvents);
         }
-
+        LocalDB.instance.ExecuteNonQuery("delete from time_events");
         LocalDB.instance.CreateTable("time_events",time_events); 
 
         //保存Motion

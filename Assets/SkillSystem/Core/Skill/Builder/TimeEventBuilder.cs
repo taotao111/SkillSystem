@@ -1,17 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
-public enum eTimeEvent
+namespace Code.SkillSystem.Runtime
 {
-    SummonEvent,
-    ActionEvent,
-}
-public class TimeEventBuilder : TBuilder<TimeEvent, TimeLine>
-{
-
-    public TimeEventBuilder() { }
-
-    void Add<T>(eTimeEvent id) where T : TimeEvent, new()
+    public enum eTimeEvent
     {
-        //Add<T>((uint)id);
+        SummonEvent,
+        ActionEvent,
+    }
+    public class TimeEventBuilder : TBuilder<TimeEvent, TimeLine>
+    {
+
+        public TimeEventBuilder() { }
+
+        void Add<T>(eTimeEvent id) where T : TimeEvent, new()
+        {
+            //Add<T>((uint)id);
+        }
     }
 }

@@ -56,10 +56,10 @@ public class LocalDB : SqliteDatabase
 
     public void CreateTable<T>(string table_name, List<T> data) where T : DBDataBase
     {
-        ExecuteNonQuery("DROP TABLE IF EXISTS " + table_name);
+        //ExecuteNonQuery("DROP TABLE IF EXISTS " + table_name);
 #if UNITY_EDITOR
         //创建表
-        string table_format = "CREATE TABLE [{0}] ({1})";
+        string table_format = "CREATE TABLE if not exists [{0}] ({1})";
 
         System.Text.StringBuilder table_property = new System.Text.StringBuilder();
 
@@ -107,6 +107,8 @@ public class LocalDB : SqliteDatabase
 
     public void WriteToTable<T>(string table_name, List<T> data) where T : DBDataBase
     {
+        ExecuteNonQuery("delete from " + table_name);
+
         string data_format = "insert into {0} ({1}) values({2})";
 
         List<object> properties_list = new List<object>();

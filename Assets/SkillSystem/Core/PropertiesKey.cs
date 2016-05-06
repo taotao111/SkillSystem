@@ -215,6 +215,10 @@ public class PropertiesKey {
     /// </summary>
     public const string TIMELINE_SUMMON_TARGET = "sm_target";
     /// <summary>
+    /// 触发目标
+    /// </summary>
+    public const string TIMELINE_SUMMON_TRIGGER_TARGET = "sm_trigger_target";
+    /// <summary>
     /// 事件的时间
     /// </summary>
     public const string TIMELINE_TIME = "time";

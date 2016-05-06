@@ -45,7 +45,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Editor\LODExternalWindow.cs" />
+     <Compile Include="Assets\Editor\LODHelper.cs" />
      <Compile Include="Assets\SkillSystem\Editor\CustomMenuItem.cs" />
+     <Compile Include="Assets\SkillSystem\Editor\Motion\MotionInspector.cs" />
+     <Compile Include="Assets\SkillSystem\Editor\Motion\MotionMoveP2PInspector.cs" />
      <Compile Include="Assets\SkillSystem\Editor\SkillEditorConfig.cs" />
      <Compile Include="Assets\SkillSystem\Editor\WindowAddNewSkill.cs" />
      <Compile Include="Assets\SkillSystem\Editor\WindowAddProp.cs" />

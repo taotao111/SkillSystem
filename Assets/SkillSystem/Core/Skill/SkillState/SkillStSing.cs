@@ -1,5 +1,5 @@
 ﻿using Code.StateMachine;
-namespace Code.SkillSystem
+namespace Code.SkillSystem.Runtime
 {
     public class SkillStSing : State<Skill>
     {

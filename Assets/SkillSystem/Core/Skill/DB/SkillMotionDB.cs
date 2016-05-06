@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Code.External.Engine.Sqlite;
 using Mono.Data.Sqlite;
-namespace Code.SkillSystem
+namespace Code.SkillSystem.Runtime
 {
     public class SkillMotionDB : DBReader
     {
@@ -21,19 +21,19 @@ namespace Code.SkillSystem
                 Add(db[i]);
             }
         }
-        public List<Motion> GetMotion(uint owner_skill, uint owner, Summon summon)
+        public List<Motion> GetMotion(uint owner_skill, uint owner_summon, Summon summon)
         {
             List<Motion> motions = new List<Motion>();
 
             List<Prop> props = new List<Prop>();
             if (!m_Datas.ContainsKey(owner_skill)) { return motions; }
-            if (m_Datas[owner_skill].TryGetValue(owner, out props))
+            if (m_Datas[owner_skill].TryGetValue(owner_summon, out props))
             {
                 for (int i = 0; i < props.Count; i++)
                 {
                     System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly(); // 获取当前程序集 
 
-                    Motion motion = (Motion)assembly.CreateInstance("Code.SkillSystem." + props[i].GetString(PropertiesKey.MOTION_TYPE));
+                    Motion motion = (Motion)assembly.CreateInstance("Code.SkillSystem.Runtime." + props[i].GetString(PropertiesKey.MOTION_TYPE));
                     
                     motion.Create(props[i], summon);
                     motions.Add(motion);
@@ -63,11 +63,20 @@ namespace Code.SkillSystem
             }
         }
 #if UNITY_EDITOR
+        public void Remove(uint owner_skill, uint owner_summon)
+        {
+            List<Motion> motions = new List<Motion>();
 
+            List<Prop> props = new List<Prop>();
+            if (!m_Datas.ContainsKey(owner_skill)) { return; }
+            if (m_Datas[owner_skill].TryGetValue(owner_summon, out props))
+            {
+                for (int i = 0; i < props.Count; i++) { Remove(props[i]); }
+            }
+        }
         public void Remove(Prop prop)
         {
             db.Remove(prop);
-
             //
             uint owner_skill = prop.GetUint(PropertiesKey.MOTION_OWNER_SKILL);
             uint owner_summon = prop.GetUint(PropertiesKey.MOTION_OWNER);
@@ -77,7 +86,6 @@ namespace Code.SkillSystem
                 m_Datas[owner_skill][owner_summon].Remove(prop);
             }
         }
-
         public void Save()
         {
             LocalDB.instance.ExecuteNonQuery("delete from " + m_FileName);
@@ -105,7 +113,6 @@ namespace Code.SkillSystem
                 LocalDB.instance.ExecuteNonQuery(string.Format(string_format, string_type, string_value.ToString()));
             }
         }
-
         public int MaxID(Prop prop)
         {
             int id = 10000000;

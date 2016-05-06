@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-namespace Code.SkillSystem
+namespace Code.SkillSystem.Runtime
 {
     public enum eAction
     {
@@ -10,6 +10,7 @@ namespace Code.SkillSystem
         ShakeCamera,
         Summon,
         AddBuff,
+        Audio,
     }
     public class ActionBuilder : TBuilder<Action, Summon>
     {

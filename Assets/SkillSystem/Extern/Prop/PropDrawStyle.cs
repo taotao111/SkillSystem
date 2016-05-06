@@ -12,28 +12,24 @@ public class DrawStyle
     {
         this.name = name;
     }
-
+    public virtual void SetDefaultValue(object defalut_value) { }
     public virtual string Draw(string str)
     {
         str = EditorGUILayout.TextArea(str);
         return str;
     }
-
     public static DrawStyle DefaultStyle(string name)
     {
         return new DrawStyle(name);
     }
-
     public static DrawStyleInt IntStyle(string name)
     {
         return new DrawStyleInt(name);
     }
-
     public static DrawStyleFloat FloatStyle(string name)
     {
         return new DrawStyleFloat(name);
     }
-
     public static DrawStylePopup Popup(string name, string[] popups)
     {
         DrawStylePopup popup = new DrawStylePopup(name);
@@ -106,8 +102,11 @@ public class DrawStylePopup : DrawStyle
 
         return str;
     }
+    public override void SetDefaultValue(object defalut_value)
+    {
+        enums = (string[])defalut_value;
+    }
 }
-
 public class DrawStyleVector3 : DrawStyle
 {
     public DrawStyleVector3(string name):base(name)
@@ -135,6 +134,19 @@ public class DrawStyleVector3 : DrawStyle
         vec3 = EditorGUILayout.Vector3Field("", vec3);
 
         return (vec3.x + "," + vec3.y + "," + vec3.z);
+    }
+}
+public class DrawStyleBool : DrawStyle
+{
+    public DrawStyleBool(string name) : base(name)
+    { }
+    public override string Draw(string str)
+    {
+        bool bool_value = bool.Parse(str);
+
+        bool_value = EditorGUILayout.Toggle(bool_value);
+
+        return bool_value.ToString();
     }
 }
 #endif

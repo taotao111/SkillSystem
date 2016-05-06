@@ -299,12 +299,12 @@ public class Prop
 
         return keys;
     }
-    public void Draw(bool flag = true)
+    public void Draw(string name = "属性",bool flag = true)
     {
         GUILayout.BeginVertical("box");
 
         GUILayout.BeginHorizontal();
-        m_Draw = EditorGUILayout.Foldout(m_Draw, "属性");
+        m_Draw = EditorGUILayout.Foldout(m_Draw, name);
         GUI.color = Color.green;
         if (GUILayout.Button("添加新属性", GUILayout.ExpandWidth(false)))
         {
